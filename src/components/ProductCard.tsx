@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useProductContext } from "../context/ProductContext";
 import { MdDone } from "react-icons/md";
 
-const ProductCard = ({ product }) => {
+interface Product {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+}
+
+const ProductCard = ({ product }: { product: Product }) => {
   const { handleSelect, selectedProducts } = useProductContext();
   const isSelected = selectedProducts.includes(product.id);
 
